@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: efs-sample-pod
+  namespace: jenkins
+spec:
+  containers:
+  - name: test-container
+    image: amazonlinux
+    command: ["/bin/sh"]
+    args: ["-c", "sleep 3600"]
+    volumeMounts:
+    - name: efs-sc
+      mountPath: /data
+  volumes:
+  - name: efs-sc
+    persistentVolumeClaim:
+      claimName: jenkins-claim   # 👈 use your PVC name
+  
