@@ -21,3 +21,6 @@ spec:
           value: "dynamic,eks"
         - name: RUNNER_GROUP
           value: "Default"
+          githubToken:
+          secretName: github-token
+          secretKey: github_token
