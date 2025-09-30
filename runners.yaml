@@ -7,7 +7,7 @@ spec:
   replicas: 2
   template:
     spec:
-      repository: sravya222/jenkins
+      repository: sravya222/jenkins        # must be owner/repo format
       image: summerwind/actions-runner:latest
       resources:
         limits:
@@ -16,11 +16,11 @@ spec:
         requests:
           cpu: "500m"
           memory: "1Gi"
+      githubToken:                           # <--- Use this field instead of env
+        secretName: github-token
+        secretKey: github_token
       env:
         - name: RUNNER_LABELS
           value: "dynamic,eks"
         - name: RUNNER_GROUP
           value: "Default"
-          githubToken:
-          secretName: github-token
-          secretKey: github_token
