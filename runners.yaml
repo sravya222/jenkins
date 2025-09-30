@@ -8,8 +8,7 @@ spec:
   template:
     spec:
       repository: sravya222/jenkins
-      repository: https://github.com/sravya222/jenkins
-      image: summerwind/actions-runner:latest
+        image: summerwind/actions-runner:latest
       resources:
         limits:
           cpu: "1"
