@@ -1,0 +1,23 @@
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: RunnerDeployment
+metadata:
+  name: example-runner
+  namespace: github-runner
+spec:
+  replicas: 2
+  template:
+    spec:
+      repository: https://github.com/sravya222/jenkins
+      image: summerwind/actions-runner:latest
+      resources:
+        limits:
+          cpu: "1"
+          memory: "2Gi"
+        requests:
+          cpu: "500m"
+          memory: "1Gi"
+      env:
+        - name: RUNNER_LABELS
+          value: "dynamic,eks"
+        - name: RUNNER_GROUP
+          value: "Default"
