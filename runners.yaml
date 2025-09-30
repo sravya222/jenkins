@@ -16,11 +16,7 @@ spec:
         requests:
           cpu: "500m"
           memory: "1Gi"
-      valueFrom:
-            secretKeyRef:
-              name: github-token
-              key: github_token
-      env:
+        env:
         - name: RUNNER_LABELS
           value: "dynamic,eks"
         - name: RUNNER_GROUP
